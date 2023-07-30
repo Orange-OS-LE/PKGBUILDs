@@ -1,0 +1,19 @@
+pkgname=oosle-shortcuts
+pkgver=1.0
+pkgrel=1
+arch=("any")
+source=(
+    "https://github.com/Orange-OS-LE/OrangeOSLE2/archive/refs/heads/main.zip"
+)
+md5sums=("SKIP")
+
+package() {
+    cd $srcdir/OrangeOSLE2-main/apps/
+    mkdir -p $pkgdir/usr/share/applications
+    mkdir -p $pkgdir/opt/
+    for d in */ ; do
+        [ -L "${d%/}" ] && continue
+        cp -r "$d"/*.desktop $pkgdir/usr/share/applications
+        cp -r "$d"/*.png $pkgdir/opt/
+    done
+}
