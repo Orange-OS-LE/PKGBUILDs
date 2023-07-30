@@ -1,0 +1,3 @@
+[submodule "turbowarp-desktop-bin"]
+	path = turbowarp-desktop-bin
+	url = https://aur.archlinux.org/turbowarp-desktop-bin.git
